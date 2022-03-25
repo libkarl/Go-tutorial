@@ -16,3 +16,8 @@ func Router() *mux.Router {
 
 	return router
 }
+
+// výstup z funkce se bude exportovat -> return router
+// *mux.Router -> nadefinovaná reference na strukturu Routeru vytažená z mux balíčku
+// http.HandleFunc funguje tak, že při spuštění zadané cesty v první části se správnou metodou definovanou
+// v methods odpálí připojednou funkci naimportovatnou ze složky controller

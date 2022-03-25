@@ -15,7 +15,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-const connectionString = "mongodb+srv://learncodeonline:hitesh@cluster0.humov.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" // string pro připojení do databáze
+const connectionString = "mongodb+srv://karel_data:karl@cluster0.zsir6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" // string pro připojení do databáze
 const dbName = "netflix" // název databáze
 const colName = "watchlist" // název kolekce
 
