@@ -16,6 +16,8 @@ var wg sync.WaitGroup // má být implementováno jako pointer
 
 var signals = []string{"test"} // slice 
 
+var mut sync.Mutex // opět by měl byt mutex zapsaný jako pointeer  
+
 func main() {
 	//go greeter("Hello")
 	//greeter("World")
@@ -49,8 +51,9 @@ func getStatusCode (url string)  {
 		fmt.Println("Jsi v prdeli")
 
 	} else {
-
+		mut.Lock() // zamkne pamět pro zapisování
 		signals = append(signals, url)
+		mut.Unlock()
 		fmt.Printf("Status code: %d pro web %s", res.StatusCode, url)
 	}
 	
@@ -58,3 +61,5 @@ func getStatusCode (url string)  {
 
 // mutex poskytuje zámek nad pamětí, existuje i zámek pro čtení nebo zápis
 // říkám, že zamknu tuhle pamět dokud tato konkretní go rutina běží čímž nedovolím nikomu jinému tuto pamět používat dokud tato rutina nedoběhne 
+
+// read mutex -> dovolí nějakou pamet čist, ale nedovoli do ni zapisovat 
