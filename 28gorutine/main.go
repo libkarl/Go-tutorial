@@ -54,11 +54,12 @@ func getStatusCode (url string)  {
 		mut.Lock() // zamkne pamět pro zapisování
 		signals = append(signals, url)
 		mut.Unlock()
-		fmt.Printf("Status code: %d pro web %s", res.StatusCode, url)
+		fmt.Printf("Status code: %d pro web %s\n", res.StatusCode, url)
 	}
 	
 }
-
+// %s říká zobraz odpovídající string z proměnné
+// %d říká zobraz odpovídající argument, který musí být integer 
 // mutex poskytuje zámek nad pamětí, existuje i zámek pro čtení nebo zápis
 // říkám, že zamknu tuhle pamět dokud tato konkretní go rutina běží čímž nedovolím nikomu jinému tuto pamět používat dokud tato rutina nedoběhne 
 
